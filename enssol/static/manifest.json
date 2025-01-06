@@ -1,0 +1,63 @@
+{
+  "name": "Web Application",
+  "short_name": "WebApp",
+  "description": "Secure web application for managing user profiles and obligations",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/static/assets/images/identity/siteicons/icon-default.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/static/assets/images/identity/brandmarks/logo-compact.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/assets/images/identity/brandmarks/logo-primary.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/dashboard.html",
+      "description": "View your dashboard"
+    },
+    {
+      "name": "Profile",
+      "url": "/profile.html",
+      "description": "View your profile"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/static/assets/images/interface/mainarea/main-default.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Dashboard view of the application"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "dir": "ltr",
+  "lang": "en-AU",
+  "prefer_related_applications": false,
+  "scope": "/",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "related_applications": [],
+  "protocol_handlers": [
+    {
+      "protocol": "web+app",
+      "url": "/?action=%s"
+    }
+  ]
+}

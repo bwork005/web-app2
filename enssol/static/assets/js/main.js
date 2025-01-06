@@ -648,3 +648,37 @@ const initializeAPIs = async () => {
     });
   }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetchProjects();
+});
+
+async function fetchProjects() {
+    try {
+        const response = await fetch('/api/projects');
+        const data = await response.json();
+
+        if (data.success) {
+            displayProjects(data.data);
+        } else {
+            console.error('Error:', data.error);
+        }
+    } catch (error) {
+        console.error('Failed to fetch projects:', error);
+    }
+}
+
+function displayProjects(projects) {
+    const container = document.getElementById('projects-list');
+
+    projects.forEach(project => {
+        const element = document.createElement('div');
+        element.className = 'project-item';
+        element.innerHTML = `
+            <h3>${project.project_name}</h3>
+            <p>Status: ${project.status}</p>
+            <p>Due Date: ${new Date(project.action_due_date).toLocaleDateString()}</p>
+        `;
+        container.appendChild(element);
+    });
+}

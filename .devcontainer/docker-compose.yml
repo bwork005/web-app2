@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  web-app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/home/appuser/web-app:cached
+    command: sleep infinity

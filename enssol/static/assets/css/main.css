@@ -12,8 +12,8 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
+  padding: 20px;
+  background-color: #f5f5f5;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,6 +54,15 @@ body {
   flex-direction: column;
   gap: 1rem;
   animation: fadeIn 0.3s ease-out;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 table {
@@ -214,6 +223,18 @@ tr:nth-child(even) {
 
 .warning {
   background-color: #fff3cd;
+}
+
+.project-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.project-item h3 {
+  margin: 0 0 10px 0;
+  color: #333;
 }
 
 /* Tablet Breakpoint */

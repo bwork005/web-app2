@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /config/
+Disallow: /scripts/
+Sitemap: https://example.com/sitemap.xml

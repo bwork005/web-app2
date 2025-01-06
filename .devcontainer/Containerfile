@@ -10,17 +10,14 @@ ENV LANG=en_AU.ISO8859-1 \
 # Install necessary packages
 RUN apk update && apk add --no-cache \
     build-base \
-    rustup \
     git \
     gpg \
     gpg-agent \
     dropbear \
     dropbear-dbclient \
     dropbear-ssh \
-    && rustup-init -y \
-    && source $HOME/.cargo/env \
-    && rustup default stable \
-    && rustup component add rustfmt \
+    perl \
+    openssl-dev \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/* /var/tmp/*
 
