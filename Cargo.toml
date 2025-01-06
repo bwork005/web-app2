@@ -1,0 +1,67 @@
+[package]
+name = "web-app"
+version = "0.1.0"
+edition = "2018"
+authors = ["Your Name <your.email@example.com>"]
+description = "A web application using Rust"
+license = "MIT"
+
+[dependencies]
+# Security and Encryption
+openssl = { version = "0.10", features = ["vendored"] }
+jsonwebtoken = "9.2"
+accesscontrol = "0.3"
+sha2 = "0.10"
+
+# Networking and Web
+tiny-http = "0.12"
+tokio = { version = "1.0", features = ["full"] }
+rocket = "0.5"
+
+# Utilities
+lru = "0.12"
+zip = "0.6"
+regex = "1.10"
+sys-info = "0.9"
+wasmer = "4.2"
+dyon = "0.47"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Encoding
+encoding_rs = "0.8.35"
+
+# Database
+polodb_core = "5.1.3"
+
+# Logging and Monitoring
+log = "0.4"
+env_logger = "0.10"
+prometheus = "0.13"
+
+[dev-dependencies]
+criterion = "0.5"
+tarpaulin = "0.27"
+clippy = "0.0.302"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = 'abort'
+strip = true
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[workspace]
+members = [
+    ".",
+]
+
+[features]
+default = ["std"]
+std = []

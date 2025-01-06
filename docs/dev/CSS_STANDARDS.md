@@ -1,20 +1,27 @@
-# CSS2.1 Standards and Validation Rules
+# CSS3 Standards and Validation Rules
 
 ## Overview
-This document outlines the CSS2.1 standards and validation rules for HTML documents in the web application.
+This document outlines the CSS3 standards and validation rules for HTML documents in the web application.
 
 ## Requirements
 
 ### Document Encoding
-- All files must use ISO-8859-1 encoding
-- Meta charset must be specified: `<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">`
+- All files must use UTF-8 encoding
 
-### CSS Standards
-- Must conform to CSS2.1 specification
-- No CSS3 or modern features
-- All styles must be inline (no external stylesheets)
-- No vendor prefixes
-- No @import rules
+### CSS Features
+Allowed modern features:
+- Flexbox and Grid
+- CSS Variables
+- Transitions and Animations
+- Transform and 3D
+- Media Queries
+- Custom Properties
+- Gradients
+- Modern Color Formats
+- Web Fonts
+- Box Shadow
+- Border Radius
+- Multiple Backgrounds
 
 ### Allowed Selectors
 - Element selectors (e.g., `div`, `p`, `table`)
@@ -33,28 +40,15 @@ This document outlines the CSS2.1 standards and validation rules for HTML docume
   - :first-child
 
 ### Disallowed Features
-- CSS3 selectors
-- Media queries (except `print`)
-- Flexbox/Grid
-- Transitions/Animations
-- Custom properties (variables)
 - calc() function
-- Modern color formats (rgba, hsla)
-- Border-radius
-- Box-shadow
-- Text-shadow
-- Transform
-- Multiple backgrounds
-- Gradients
-- Web fonts (@font-face)
 
 ### Value Types
-- Colors: #hex, rgb(), named colors
+- Colors: #hex, rgb(), rgba(), hsla(), named colors
 - Units: px, em, %, pt
 - Keywords: auto, none, inherit
 
 ### Properties
-Limited to CSS2.1 specification properties including:
+Limited to CSS3 specification properties including:
 - margin, padding
 - border
 - background
@@ -68,16 +62,24 @@ Limited to CSS2.1 specification properties including:
 - overflow
 - visibility
 - z-index
+- flexbox, grid
+- transitions, animations
+- transform, 3D
+- media queries
+- custom properties
+- gradients
+- modern color formats
+- web fonts
+- box shadow
+- border radius
+- multiple backgrounds
 
 ### Validation Rules
 1. Style tags must include type attribute: `<style type="text/css">`
 2. No external stylesheets
 3. No @import rules
-4. No CSS3 properties or selectors
-5. ISO-8859-1 character encoding
-6. Valid CSS2.1 syntax
-7. No vendor prefixes
-8. No modern features
+4. Valid CSS3 syntax
+5. UTF-8 character encoding
 
 ## Examples
 

@@ -1,53 +1,32 @@
 # Set shell to POSIX sh for maximum portability
 shell=sh
 
-# Enable core POSIX checks
+# Enable POSIX compliance checks
 enable=all
+enable=avoid-nullary-conditions
+enable=check-unassigned-uppercase
+enable=deprecate-which
+enable=quote-safe-variables
 
-# Disable non-POSIX features and extensions
-disable=SC2039  # POSIX-only shell features
-disable=SC2310  # Non-POSIX test commands
-disable=SC2311  # Non-POSIX test operators
+# Disable non-POSIX features
+disable=SC2039  # Word splitting
+disable=SC3043  # Local declaration
+disable=SC3044  # Arrays
+disable=SC3045  # Brace expansion
+disable=SC3046  # String concatenation
+disable=SC3047  # Arithmetic expansion
+disable=SC3048  # Command substitution
 
-# Source handling configuration
+# Source handling
 source-path=SCRIPTDIR
 external-sources=true
 
-# Set error handling level
-error-level=error
-severity=error
+# Error handling
+error-level=style
+severity=style
 
-# Critical safety checks
-enable=check-unassigned-uppercase
-enable=quote-safe-variables
-enable=require-variable-braces
-enable=check-set-e-suppressed
-enable=check-external-commands
-enable=require-function-declaration
-enable=check-unquoted-tilde
-enable=check-command-substitution-quoting
-enable=check-return-code
-enable=check-set-options
-enable=check-command-path
-
-# Variable and parameter handling
-enable=check-parameter-expansion
-enable=check-environment-variables
-enable=require-variable-declaration
-enable=check-word-splitting
-
-# File and directory operations
-enable=check-symlink-race
-enable=check-tempfile-race
-enable=check-cd-errors
-enable=check-pathname-expansion
-
-# Process and signal handling
-enable=check-signal-handler
-enable=check-trap-handler
-enable=check-job-control
-
-# Input/Output handling
-enable=check-redirect-printf
-enable=check-fd-leaked
-enable=check-fd-closed
+# Required checks
+require=Double-quote-variables
+require=quote-safe-variables
+require=Declare-variables
+require=Check-exit-code

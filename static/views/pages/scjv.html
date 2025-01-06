@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>SCJV - Pilbara Ports Environmental Obligations</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/styles.css">
+  <script type="text/javascript" src="/static/assets/js/utils.js"></script>
+  <script type="text/javascript" src="/static/assets/js/main.js"></script>
+</head>
+
+<body>
+  <div id="header">
+    <h1>SCJV Environmental Obligations</h1>
+  </div>
+
+  <div class="user-nav">
+    <button class="nav-button" aria-label="Profile">Profile</button>
+    <button class="nav-button" aria-label="Back">Back</button>
+  </div>
+
+  <div class="filter-buttons">
+    <button data-filter="all">All Records</button>
+    <button data-filter="warning">Due Soon (14 Days)</button>
+    <button data-filter="overdue">Overdue</button>
+  </div>
+
+  <div class="container">
+    <table id="obligationsTable">
+      <tr>
+        <th data-sort="0">Procedure</th>
+        <th data-sort="1">Env Aspect</th>
+        <th data-sort="2">Obligation #</th>
+        <th data-sort="3">Responsibility</th>
+        <th data-sort="4">Phase</th>
+        <th data-sort="5">Due Date</th>
+        <th data-sort="6">Status</th>
+        <th data-sort="7">Recurring</th>
+        <th data-sort="8">Frequency</th>
+      </tr>
+      <tr class="filter-row">
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+        <td><input type="text" class="column-filter"></td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

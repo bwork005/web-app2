@@ -1,0 +1,20 @@
+# Main Navigation
+HOME=https://example.com/
+DASHBOARD=https://example.com/dashboard
+PROFILE=https://example.com/profile
+
+# API Endpoints
+API_BASE=https://api.example.com/v1
+AUTH_ENDPOINT=/auth
+USERS_ENDPOINT=/users
+PROFILE_ENDPOINT=/profile
+
+# External Resources
+DOCUMENTATION=https://docs.example.com
+SUPPORT=https://support.example.com
+STATUS=https://status.example.com
+
+# Security
+SECURITY_POLICY=https://example.com/security
+PRIVACY_POLICY=https://example.com/privacy
+TERMS=https://example.com/terms

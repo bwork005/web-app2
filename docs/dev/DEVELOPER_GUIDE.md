@@ -2,10 +2,10 @@
 
 ## Core Build Tools
 
-### Build-base
-- Essential build tools
-- Includes GCC, Make, Musl and others
-- Supports compilation and linking
+### Rust Toolchain
+- rustc: Rust compiler
+- cargo: Package manager
+- rustup: Toolchain manager
 
 ### Busybox
 - Single binary with multiple utilities
@@ -18,6 +18,15 @@
 - Simplifies binary management
 
 ## Development Environment
+
+### rust-analyzer
+- IDE support
+
+### rustfmt
+- Code formatter
+
+### clippy
+- Linter
 
 ### GDB (GNU Debugger)
 - Interactive debugger
@@ -111,6 +120,12 @@
 - Call graph generation
 
 ## Security
+
+### cargo-audit
+- Security auditing
+
+### cargo-crev
+- Code review system
 
 ### BearSSL
 - lightweight SSL/TLS implementation

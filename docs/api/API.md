@@ -3,96 +3,119 @@
 ## Core Web Server API
 
 ### HTTP Server Interface
-```c
-int startServer(int port);
+```rust
+pub fn start_server(port: u16) -> Result<(), Error>
 ```
 Starts the HTTP server on the specified port.
 
 - **Parameters:**
   - `port`: Port number to listen on (1-65535)
 - **Returns:**
-  - 0 on success
-  - -1 on error
+  - `Ok(())` on success
+  - `Err(Error)` on failure
 
 ### String Utilities
-```c
-char *toUpperCase(char *str);
+```rust
+pub fn to_uppercase(s: &str) -> String
 ```
 Converts a string to uppercase.
 
 - **Parameters:**
-  - `str`: String to convert (ISO-8859-1 encoded)
+  - `s`: String slice to convert (UTF-8 encoded)
 - **Returns:**
-  - Pointer to converted string
-  - NULL on error
+  - `String` containing uppercase version
 
-## HTML 4.01 Components
+## HTML5 Components
 
 ### Forms
 ```html
 <form method="POST" action="/submit">
-  <!-- Form content -->
+  <input type="text" required>
+  <button type="submit">Submit</button>
 </form>
 ```
-Standard form component following HTML 4.01 Strict.
+Modern HTML5 form with validation.
 
 ### Tables
 ```html
-<table summary="Data presentation">
-  <tr><th>Header</th></tr>
-  <tr><td>Data</td></tr>
+<table>
+  <thead>
+    <tr><th>Header</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Data</td></tr>
+  </tbody>
 </table>
 ```
-Data presentation component following HTML 4.01 Strict.
+Semantic HTML5 table structure.
 
-## CSS 2.1 Styles
+## CSS3 Styles
 
 ### Layout
 ```css
 .container {
+  display: flex;
   width: 100%;
   margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 ```
-Basic responsive layout following CSS 2.1 specification.
+Modern CSS3 layout with flexbox.
 
-## JavaScript ES3 Functions
+## JavaScript ES9 Functions
 
-### Event Handlers
+### Async/Await Event Handlers
 ```javascript
-function handleClick(event) {
-  // Event handling code
+async function handleClick(event) {
+  try {
+    const response = await fetch('/api/data');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
 }
 ```
-Standard event handling following ECMAScript 3 specification.
+Modern async/await pattern with ES9.
 
-## Error Codes
+## Error Handling
 
-| Code | Description           | HTTP Status |
-|------|--------------------- |-------------|
-| 0    | Success             | 200         |
-| 1    | Invalid Parameters  | 400         |
-| 2    | Authentication Error| 401         |
-| 3    | Permission Denied   | 403         |
-| 4    | Not Found          | 404         |
-| 5    | Server Error       | 500         |
+```rust
+#[derive(Debug)]
+pub enum AppError {
+    InvalidParameters,
+    AuthenticationError,
+    PermissionDenied,
+    NotFound,
+    ServerError,
+}
+
+impl From<AppError> for tiny_http::Response<std::io::Cursor<Vec<u8>>> {
+    fn from(error: AppError) -> Self {
+        // Convert error to HTTP response
+        // ...existing code...
+    }
+}
+```
 
 ## Data Formats
 
 ### Request Format
-```plaintext
-GET /path HTTP/1.0
+```http
+GET /path HTTP/1.1
 Host: example.com
 Accept: text/html
-Accept-Charset: ISO-8859-1
+Accept-Charset: UTF-8
 ```
 
 ### Response Format
-```plaintext
-HTTP/1.0 200 OK
-Content-Type: text/html; charset=ISO-8859-1
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
 Content-Length: <length>
 
+<!DOCTYPE html>
 <html>
 ...
 </html>

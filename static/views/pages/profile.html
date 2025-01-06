@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Profile Management</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/styles.css">
+  <script type="text/javascript" src="/static/assets/js/utils.js"></script>
+  <script type="text/javascript" src="/static/assets/js/main.js"></script>
+</head>
+
+<body>
+  <div class="main">
+    <h1>Profile Management</h1>
+
+    <form id="profileForm">
+      <div id="profile-error" class="error">
+        Error updating profile
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="project">Project:</label>
+        <select id="project" name="project">
+          <option value="">Select Project</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <input type="submit" value="Update Profile">
+        <input type="reset" value="Clear" class="clear-form" data-form="profile">
+        <button type="button" class="nav-button back-button">Back to Dashboard</button>
+      </div>
+    </form>
+
+    <div class="admin-section">
+      <h2>Administrative Tools</h2>
+      <button type="button" class="nav-button" data-page="crud_profile.html">Manage User Profiles</button>
+    </div>
+  </div>
+
+  <div role="main" class="container">
+    <!-- main content -->
+  </div>
+
+  <div class="nav-controls">
+    <button class="nav-button" aria-label="Profile">Profile</button>
+    <button class="nav-button" aria-label="Back">Back</button>
+  </div>
+</body>
+
+</html>

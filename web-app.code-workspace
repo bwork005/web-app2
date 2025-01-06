@@ -14,22 +14,38 @@
     "editor.detectIndentation": false,
     "editor.formatOnSave": true,
     "[json]": {
-      "editor.insertSpaces": true
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[jsonc]": {
-      "editor.insertSpaces": true
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[markdown]": {
-      "files.trimTrailingWhitespace": false
+      "files.trimTrailingWhitespace": false,
+      "editor.defaultFormatter": "vscode.markdown-language-features",
     },
-    "[makefile]": {
-      "editor.insertSpaces": false
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features",
+      "editor.formatOnSave": true,
+      "files.encoding": "utf8",
     },
-    "[makefile.am]": {
-      "editor.insertSpaces": false
+    "[javascript]": {
+
+      "editor.defaultFormatter": "vscode.typescript-language-features",
+      "editor.formatOnSave": true,
+      "files.encoding": "utf8",
     },
-    "[makefile.in]": {
-      "editor.insertSpaces": false
+    "[css]":{
+
+      "editor.defaultFormatter": "vscode.css-language-features",
+      "editor.formatOnSave": true,
+      "files.encoding": "utf8",
+    },
+    "[rust]": {
+      "editor.formatOnSave": true,
+      "editor.rulers": [100],
+      "files.encoding": "utf8"
     },
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
@@ -60,19 +76,45 @@
     "explorer.compactFolders": true,
     "explorer.autoReveal": true,
     "files.associations": {
-      ".rec": "recfile"
+      "*.rs": "rust",
+      "*.toml": "toml",
+      "*.yaml": "yaml",
+      "*.json": "json",
+      "*.js": "javascript",
+      "*.css": "css",
+      "*.html": "html"
     },
     "github.copilot.enable": {
-      "containerfile": true
+      "plaintext": true,
+      "markdown": true,
+      "css": true,
+      "diff": true,
+      "dockerfile": true,
+      "git": true,
+      "html": true,
+      "ini": true,
+      "javascript": true,
+      "json": true,
+      "yaml": true,
+      "dotenv": true,
+      "dockercompose": true,
+      "git-commit": true,
+      "git-rebase": true,
+      "shellscript": true,
+      "sql": true,
+      "xml": true,
+      "rust": true,
+      "toml": true
     },
     "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.editor.enableCodeActions": true,
     "github.copilot.chat.fixTestFailure.enabled": true,
     "github.copilot.chat.followUps": "always",
     "github.copilot.chat.reviewSelection.enabled": true,
-    "github.copilot.editor.enableCodeActions": true,
-    "github.copilot.renameSuggestions.triggerAutomatically": true,
     "github.copilot.chat.codeGeneration.useInstructionFiles": true,
     "github.copilot.chat.temporalContext.enabled": true,
+    "github.copilot.chat.scopeSelection": true,
+    "github.copilot.chat.search.semanticTextResults": true,
     "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.shellIntegration.showCommandGuide": true,
     "terminal.integrated.fontFamily": "monospace",
@@ -112,7 +154,7 @@
     "diffEditor.hideUnchangedRegions.enabled": true,
     "editor.inlineSuggest.syntaxHighlightingEnabled": true,
     "files.autoGuessEncoding": false,
-    "files.encoding": "iso88591",
+    "files.encoding": "utf8",
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
@@ -152,8 +194,6 @@
     "application.experimental.rendererProfiling": true,
     "ipynb.experimental.serialization": true,
     "git.autoStash": true,
-    "github.copilot.chat.scopeSelection": true,
-    "github.copilot.chat.search.semanticTextResults": true,
     "markdown.preview.typographer": true,
     "merge-conflict.autoNavigateNextConflict.enabled": true,
     "chat.detectParticipant.enabled": false,
@@ -181,7 +221,7 @@
       "davidanson.vscode-markdownlint",
       "yzhang.markdown-all-in-one",
       "github.vscode-github-actions",
-      "your-publisher-name.recfile-syntax",
+      "your-publisher-name.jsonfile-syntax",
       "qiumingge.cpp-check-lint",
       "cs128.cs128-clang-tidy",
       "editorconfig.editorconfig",
@@ -197,7 +237,11 @@
       "ms-vscode.cmake-tools",
       "dotenv.dotenv-vscode",
       "github.copilot",
-      "ms-vscode-remote.remote-containers"
+      "ms-vscode-remote.remote-containers",
+      "rust-lang.rust-analyzer",
+      "serayuzgur.crates",
+      "tamasfe.even-better-toml",
+      "vadimcn.vscode-lldb"
     ]
   }
 }

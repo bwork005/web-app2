@@ -1,23 +1,22 @@
 # EnvEng Web Server
 
-A lightweight HTTP web server implementation in ANSI C (C89), focusing on POSIX compliance and minimal dependencies.
+A lightweight HTTP web server implementation in Rust, focusing on cross-platform compatibility and minimal dependencies.
 
 ## Features
-- Static file serving over HTTP/1.0
+- Static file serving over HTTP
 - Basic authentication and session management
-- POSIX-compliant, musl libc based implementation
-- Minimal footprint with static binary output
-- ISO-8859-1 encoding support
-- HTML4.01 Strict compliant
-- CSS2.1 compliant
-- ECMAScript 3 (ES3) compliant
+- Cross-platform Rust implementation
+- Minimal footprint
+- UTF-8 encoding support
+- HTML5 compliant
+- CSS3 compliant
+- ECMAScript 2018 (ES9) compliant
 - Mobile-first responsive design
 
 ## Prerequisites
-- musl-gcc compiler
-- musl libc
-- GNU Make
-- CUnit testing framework
+- Rust toolchain (via rustup)
+- Cargo package manager
+- Git
 
 ## Build Quick Start
 
@@ -38,69 +37,60 @@ To build the project, follow these steps:
 
 3. **Build the project**:
     ```sh
-    make
+    cargo build --release
     ```
 
 4. **Install the project**:
     ```sh
-    make install
+    cargo install --path .
     ```
 
 5. **Clean build artifacts**:
     ```sh
-    make clean
+    cargo clean
     ```
 
 ## Tool Requirements
 
 Ensure you have the following tools installed:
 
-- **GNU Make**: For building the project.
-- **GCC**: The GNU Compiler Collection, for compiling C code.
-- **musl libc**: A lightweight, POSIX-compliant standard C library.
-- **Git**: For version control.
-- **CUnit**: For unit testing.
+- **Rust**: Programming language with memory safety and concurrency
+- **Cargo**: Package manager and build system for Rust
+- **Rustup**: Toolchain installer for Rust
+- **Git**: For version control
 
 ## Build Commands
 
 ### Basic Build Commands
 ```bash
-make                # Default build (verifies musl and builds production)
-make prod          # Build production binary
-make test          # Build and run tests with coverage
-make check         # Build and run tests without coverage
-make debug         # Build tests and launch GDB debugger
-make clean         # Clean build artifacts
+cargo build --release  # Build production binary
+cargo test             # Build and run tests
+cargo check            # Check code without building
+cargo clean            # Clean build artifacts
 
 # Clean previous builds and create new release package
-make release
-
-# Create t4g-optimized release
-make t4g-release
+cargo package
 
 # The optimized package will be at:
-# dist/web-app-0.0.1.tar.gz
+# target/release/web-app-0.0.1.tar.gz
 ```
 
 ## Project Structure
 ```
 .
-??? bin/                # Binary outputs
-??? etc/               # Configuration files
-??? include/           # Header files
-??? lib/               # Libraries
-??? src/              # Source code
-??? test/             # Test suite
-??? www/              # Static web content
-    ??? assets/       # Static assets
-    ??? error/        # Error pages
-    ??? templates/    # HTML templates
+├─ target/           # Build outputs
+├─ src/              # Source code
+├─ tests/            # Test suite
+└─ static/           # Static web content
+    ├─ assets/       # Static assets
+    ├─ error/        # Error pages
+    └─ templates/    # HTML templates
 ```
 
 ## Usage
 Start the server:
 ```bash
-./bin/web_server -c /etc/web_server.conf
+./target/release/web_server -c /etc/web_server.conf
 ```
 
 Access via browser:
@@ -109,21 +99,20 @@ Access via browser:
 - Status page: http://localhost:8080/status
 
 ## Technical Details
-- ISO/IEC 9899:1990 (C90) compliant
-- POSIX.1 (IEEE 1003.1) compliant
-- X/Open-500 compliant
-- Static linking with musl libc
-- ISO-8859-1 character encoding
+- Rust 2018 edition compliant
+- Cross-platform compatibility
+- Static linking
+- UTF-8 character encoding
 - Memory-safe implementation
 - Thread-safe operations
 - No external dependencies
 
 ## Development Guidelines
 - Mobile-first responsive design
-- HTML 4.01 Strict / XHTML 1.0 Strict
-- Native CSS2.1 only (no frameworks)
-- ES3 JavaScript (no libraries)
-- ISO-8859-1 encoding for all files
+- HTML5
+- Native CSS3 only (no frameworks)
+- ES9 JavaScript (no libraries)
+- UTF-8 encoding for all files
 
 ## Security
 - Memory protection features
@@ -138,50 +127,49 @@ To ensure the quality and correctness of the web application, a comprehensive te
 
 ### Prerequisites
 
-1. **Install Dependencies**: Ensure all necessary dependencies are installed. This includes the CUnit framework for unit testing.
+1. **Install Dependencies**: Ensure all necessary dependencies are installed. This includes the Rust toolchain and Cargo package manager.
     ```sh
-    sudo apt-get update
-    sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev
+    rustup update
     ```
 
 2. **Build the Project**: Compile the project with the appropriate flags.
     ```sh
-    make ENV=dev
+    cargo build --release
     ```
 
 ### Running Unit Tests
 
-Unit tests are located in the `test/unit` directory. To run the unit tests, execute the following command:
+Unit tests are located in the `tests/unit` directory. To run the unit tests, execute the following command:
 ```sh
-make test
+cargo test --test unit
 ```
 
 ### Running Integration Tests
 
-Integration tests are located in the `test/integration` directory. To run the integration tests, execute the following command:
+Integration tests are located in the `tests/integration` directory. To run the integration tests, execute the following command:
 ```sh
-make integration-test
+cargo test --test integration
 ```
 
 ### Running Performance Tests
 
-Performance tests are located in the `test/performance` directory. To run the performance tests, execute the following command:
+Performance tests are located in the `tests/performance` directory. To run the performance tests, execute the following command:
 ```sh
-make performance-test
+cargo test --test performance
 ```
 
 ### Running Security Tests
 
-Security tests are located in the `test/security` directory. To run the security tests, execute the following command:
+Security tests are located in the `tests/security` directory. To run the security tests, execute the following command:
 ```sh
-make security-test
+cargo test --test security
 ```
 
 ### Cleaning Up
 
 To clean up the build artifacts and temporary files after running the tests, execute the following command:
 ```sh
-make clean
+cargo clean
 ```
 
 ### Additional Notes

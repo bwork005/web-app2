@@ -4,37 +4,31 @@ FROM docker.io/alpine:3.18
 # Set environment
 ENV LANG=en_AU.ISO8859-1 \
     LC_ALL=en_AU.ISO8859-1 \
-    CHARSET=ISO-8859-1
+    CHARSET=ISO-8859-1 \
+    PATH="/root/.cargo/bin:$PATH"
 
 # Install necessary packages
 RUN apk update && apk add --no-cache \
     build-base \
+    rustup \
     git \
     gpg \
     gpg-agent \
     dropbear \
     dropbear-dbclient \
     dropbear-ssh \
-    doxygen \
-    valgrind \
-    gdb \
-    shellcheck \
-    cppcheck \
-    enca \
-    groff \
-    cunit \
-    bearssl \
-    recutils \
-    gcompat \
-    github-cli \
-    && rm -rf /var/cache/apk/*
+    && rustup-init -y \
+    && source $HOME/.cargo/env \
+    && rustup default stable \
+    && rustup component add rustfmt \
+    && rm -rf /var/cache/apk/* \
+    && rm -rf /tmp/* /var/tmp/*
 
 # Add a user for non-root execution and create home directory
-RUN adduser -D appuser -u 1000 -g 1000 appuser && \
-    mkdir -p /home/appuser
+RUN adduser -D appuser -u 1000 -g 1000 appuser
+
+# Set working directory
+WORKDIR /home/appuser
 
 # Switch to non-root user
 USER appuser
-
-# Reset working directory
-WORKDIR /home/appuser

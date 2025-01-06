@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>User Profile Management</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/static/assets/css/styles.css">
+  <script type="text/javascript" src="/static/assets/js/utils.js"></script>
+  <script type="text/javascript" src="/static/assets/js/main.js"></script>
+</head>
+
+<body>
+  <div role="main" class="container">
+    <!-- main content -->
+  </div>
+
+  <div class="main">
+    <h1>User Profile Management</h1>
+
+    <form id="createUserForm" onsubmit="return validateCreateUserForm(this);">
+      <div class="form-group">
+        <label for="newUsername">Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required>
+      </div>
+
+      <div class="form-group">
+        <label for="newFullname">Full Name:</label>
+        <input type="text" id="newFullname" name="newFullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="newEmail">Email:</label>
+        <input type="text" id="newEmail" name="newEmail" required>
+      </div>
+
+      <div class="form-group">
+        <label for="newProject">Project:</label>
+        <select id="newProject" name="newProject" required>
+          <option value="">Select Project</option>
+          <option value="SCJV - Pilbara Ports">SCJV - Pilbara Ports</option>
+          <option value="W6946">W6946</option>
+          <option value="MS1180">MS1180</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <input type="submit" id="submitBtn" value="Create User">
+        <button type="button" class="nav-button" onclick="goBackToProfile()">Back to Profile</button>
+        <button type="button" class="nav-button" onclick="goToCrudPage('crud_scjv.html')">Manage SCJV Records</button>
+        <button type="button" class="nav-button" onclick="goToCrudPage('crud_ms1180.html')">Manage MS1180 Records</button>
+        <button type="button" class="nav-button" onclick="goToCrudPage('crud_w6946.html')">Manage W6946 Records</button>
+      </div>
+    </form>
+
+    <h2>Existing Users</h2>
+    <table id="userTable" class="user-table">
+      <tr>
+        <th>Username</th>
+        <th>Full Name</th>
+        <th>Home Directory</th>
+        <th>Shell</th>
+        <th>Admin</th>
+        <th>Actions</th>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Add ARIA labels -->
+  <button aria-label="Navigate to Profile" onclick="navigateToProfile()">Profile</button>
+  <button aria-label="Go Back" onclick="goBack()">Back</button>
+</body>
+
+</html>

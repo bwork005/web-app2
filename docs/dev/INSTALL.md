@@ -1,19 +1,19 @@
 # Installation Instructions
 
 ## Prerequisites
-- GCC with musl libc
-- Make
+- Rust toolchain (via rustup)
+- Cargo package manager
 - Git
-- CUnit (for testing)
-- Valgrind (for memory analysis)
-- BearSSL (for SSL/TLS)
+- Rustfmt and Clippy for code quality
+- OpenSSL for TLS support
+- Valgrind (optional, for memory analysis)
 
 ## Environment Setup
 Set the following environment variables:
 ```bash
-export LANG=en_AU.ISO8859-1
-export LC_ALL=en_AU.ISO8859-1
-export CHARSET=ISO-8859-1
+export LANG=en_AU.UTF-8
+export LC_ALL=en_AU.UTF-8
+export CHARSET=UTF-8
 ```
 
 ## Clone the Repository
@@ -25,27 +25,27 @@ cd enveng-web-app
 ## Build the Project
 ### Development Build
 ```bash
-make ENV=dev
+cargo build
 ```
 
 ### Production Build
 ```bash
-make ENV=prod
+cargo build --release
 ```
 
 ## Install the Application
 ```bash
-make install
+cargo install --path .
 ```
 
 ## Run Tests
 ```bash
-make test
+cargo test
 ```
 
 ## Clean Build Artifacts
 ```bash
-make clean
+cargo clean
 ```
 
 ## Post-Installation

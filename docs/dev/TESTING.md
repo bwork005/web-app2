@@ -2,40 +2,44 @@
 
 ## Unit Testing
 1. **Write Unit Tests**:
-   - Place unit tests in the `test/unit` directory.
-   - Use the `CUnit` framework for writing tests.
+   - Place tests in the same file as the code
+   - Use `#[cfg(test)]` module attribute
 
 2. **Run Unit Tests**:
    ```sh
-   make test
+   cargo test
    ```
 
 ## Integration Testing
 1. **Write Integration Tests**:
-   - Place integration tests in the `test/integration` directory.
+   - Place tests in `tests/` directory
+   - Create separate files for different test suites
 
 2. **Run Integration Tests**:
    ```sh
-   make test-integration
+   cargo test --test '*'
    ```
 
 ## Performance Testing
-1. **Write Performance Tests**:
-   - Place performance tests in the `test/performance` directory.
+1. **Write Benchmarks**:
+   - Use criterion for benchmarking
+   - Place benchmarks in `benches/` directory
 
-2. **Run Performance Tests**:
+2. **Run Benchmarks**:
    ```sh
-   make test-performance
+   cargo bench
    ```
 
 ## Security Testing
-1. **Write Security Tests**:
-   - Place security tests in the `test/security` directory.
-
-2. **Run Security Tests**:
+1. **Static Analysis**:
    ```sh
-   make test-security
+   cargo clippy
+   ```
+
+2. **Run Security Audit**:
+   ```sh
+   cargo audit
    ```
 
 ## Continuous Integration
-- **GitHub Actions**: Ensure all tests are run automatically on each push and pull request.
+- Tests run automatically via GitHub Actions on push and pull requests

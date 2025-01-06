@@ -1,4 +1,4 @@
-name: Build and Test
+name: Rust Build and Test
 
 on:
   push:
@@ -13,23 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+
+    - name: Install Rust toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
+        override: true
 
     - name: Set up environment
-      run: sudo apt-get update && sudo apt-get install -y musl-tools
+      run: |
+        echo "LANG=en_AU.UTF-8" >> $GITHUB_ENV
+        echo "LC_ALL=en_AU.UTF-8" >> $GITHUB_ENV
+        echo "CHARSET=UTF-8" >> $GITHUB_ENV
 
-    - name: Configure build
-      run: ./scripts/build/build.sh setup-env
-
-    - name: Build debug
-      run: ./scripts/build/build.sh make-debug
-
-    - name: Build release
-      run: ./scripts/build/build.sh make-release
+    - name: Build
+      run: cargo build --release
 
     - name: Run tests
-      run: make test
+      run: cargo test --all
 
-    - name: Verify checksums
-      run: ./scripts/utils/verify-checksum.sh
+    - name: Run clippy
+      run: cargo clippy -- -D warnings
+
+    - name: Check formatting
+      run: cargo fmt -- --check

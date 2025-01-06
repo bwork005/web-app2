@@ -1,22 +1,20 @@
-# HTML 4.01 Strict Standards and Validation Rules
+# HTML5 Standards and Validation Rules
 
 ## Overview
-This document outlines the HTML 4.01 Strict standards and validation rules for the web application. All HTML documents must comply with these standards to ensure compatibility and consistency.
-
-## Requirements
+This document outlines the HTML5 standards for the web application.
 
 ### Document Type Declaration
-- Must use HTML 4.01 Strict DOCTYPE
+- Must use HTML5 DOCTYPE
 - Must be the first line of every HTML document
 ```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 ```
 
 ### Document Encoding
-- All files must use ISO-8859-1 encoding
-- Must include content-type meta tag:
+- All files must use UTF-8 encoding
+- Must include charset meta tag:
 ```html
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8">
 ```
 
 ### Document Structure
@@ -35,7 +33,7 @@ Required elements in order:
 ### Meta Tags
 Required meta tags:
 ```html
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8">
 <meta name="robots" content="index, follow">
 <meta name="description" content="Page description">
 ```
@@ -57,7 +55,6 @@ Required meta tags:
 - Deprecated HTML elements
 - Presentational elements
 - Frame elements
-- HTML5 elements
 
 ### Allowed Elements
 Common elements include:
@@ -87,10 +84,10 @@ Common elements include:
 
 ### Valid HTML Document Structure
 ```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Page Title</title>
     <style type="text/css">
         /* CSS content */
@@ -126,17 +123,11 @@ Common elements include:
 </html>
 
 <!-- Invalid: Wrong encoding -->
-<meta charset="utf-8">
+<meta charset="ISO-8859-1">
 
 <!-- Invalid: Unclosed elements -->
 <p>Unclosed paragraph
 <div>Unclosed div
-
-<!-- Invalid: HTML5 elements -->
-<nav>
-<header>
-<footer>
-<article>
 
 <!-- Invalid: Deprecated elements -->
 <font>

@@ -1,41 +1,14 @@
+# Rust specific
+/target/
+**/*.rs.bk
+*.rlib
+*.rmeta
+Cargo.lock
+!Cargo.toml
+
 # Build output directories
-/bin/
-/build/
 /dist/
-/lib/
-/obj/
 /out/
-
-# C build artifacts
-*.o
-*.ko
-*.obj
-*.elf
-*.lib
-*.a
-*.la
-*.lo
-*.dll
-*.so
-*.so.*
-*.dylib
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Dependency directories
-/deps/
-/vendor/
-/node_modules/
 
 # IDE and editor files
 .idea/
@@ -43,10 +16,6 @@
 *.swp
 *.swo
 *~
-.project
-.cproject
-*.sublime-workspace
-*.sublime-project
 
 # OS generated files
 .DS_Store
@@ -57,26 +26,20 @@
 ehthumbs.db
 Thumbs.db
 
-# Configuration files that should not be tracked
+# Configuration files
 *.env
 !example.env
 .env.*
 !.env.example
-*.ini
-!example.ini
-*.conf
-!example.conf
 *.pem
 *.key
 *.crt
 *.cer
 *.der
 
-# Documentation and text files (only if generated)
+# Documentation
 /docs/generated/
 *.pdf
-*.doc
-*.docx
 
 # Web assets (only if generated)
 /dist/css/
@@ -98,115 +61,16 @@ yarn-error.log*
 *.swp
 *.swo
 
-# Specific to C development
-# Prerequisites
-*.d
-
-# Object files
-*.o
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
+# Database files
 *.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# Custom project files that should not be tracked
-/config/local.*
-/config/private.*
-/secrets/
 
 # Test coverage reports
 /coverage/
-*.gcno
-*.gcda
-*.gcov
 
-# Backup files
-*.bak
-*.backup
-*~
-
-# Patch files
-*.patch
-*.diff
-
-# recfiles
-# *.rec
-*.rec~
-*.rec.bak
-
-# Allow specific example files
-!example.rec
-!example.conf
-!example.env
-!example.ini
-
-# Docker
-.docker/data/
-docker-compose.override.yml
-
-# Keep these files (add ! to track them even if ignored above)
+# Keep these files
 !.gitignore
 !.gitattributes
 !LICENSE
 !README.md
 !CHANGELOG.md
 !AUTHORS
-!bin/.gitkeep
-!build/debug/obj/.gitkeep
-!build/debug/deps/.gitkeep
-!build/release/obj/.gitkeep
-!build/release/deps/.gitkeep
-!man/.gitkeep
-!docs/.gitkeep
-!scripts/.gitkeep
-!tmp/.gitkeep
-!share/.gitkeep
-!.git/hooks/commit-msg
-!.git/hooks/update
-!.git/hooks/pre-commit
-!.git/hooks/pre-push
-!.git/hooks/post-merge
-!.git/hooks/common-hooks.sh
-!.git/hooks/post-update
-!.git/hooks/pre-receive
-!.git/hooks/push-to-checkout

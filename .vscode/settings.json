@@ -1,6 +1,6 @@
 {
   "[shellcheckrc]": {
-    "files.encoding": "iso88591",
+    "files.encoding": "utf8",
     "files.autoGuessEncoding": false,
     "files.trimTrailingWhitespace": true
   },
@@ -8,7 +8,7 @@
     "editor.wordWrap": "on",
     "editor.trimAutoWhitespace": false,
     "editor.defaultFormatter": "timonwong.shellcheck",
-    "files.encoding": "iso88591",
+    "files.encoding": "utf8",
     "files.autoGuessEncoding": false,
     "files.trimTrailingWhitespace": false
   },
@@ -16,5 +16,38 @@
     "files.eol": "\n",
     "editor.defaultColorDecorators": "auto"
   },
-  "git.enabled": false
+  "git.enabled": false,
+  "editor.defaultFormatter": "rust-lang.rust-analyzer",
+  "files.encoding": "utf8",
+  "files.autoGuessEncoding": false,
+    "[jsonc]": {
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.defaultFormatter": "vscode.markdown-language-features",
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.formatOnSave": true,
+        "files.encoding": "utf8",
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.formatOnSave": true,
+        "files.encoding": "utf8",
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features",
+        "editor.formatOnSave": true,
+        "files.encoding": "utf8",
+    },
+    "[rust]": {
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+            100
+        ],
+        "files.encoding": "utf8"
+    },
 }
