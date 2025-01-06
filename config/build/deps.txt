@@ -1,0 +1,22 @@
+# Core dependencies
+pure-executor = "0.1.0"
+mini-async = "0.1.0"
+pure-store = "0.1.0"
+tiny-log = "0.1.0"
+rust-trace = "0.1.0"
+
+# Web framework
+rocket = "0.5.0"
+rocket_contrib = "0.5.0"
+
+# Security
+pure-jwt = "0.1.0"
+pure-hash = "0.1.0"
+
+# Storage
+pure-cache = "0.1.0"
+pure-fs = "0.1.0"
+
+# Utilities
+pure-json = "0.1.0"
+mini-regex = "0.1.0"

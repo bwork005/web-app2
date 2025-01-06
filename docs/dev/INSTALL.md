@@ -4,9 +4,19 @@
 - Rust toolchain (via rustup)
 - Cargo package manager
 - Git
-- Rustfmt and Clippy for code quality
-- OpenSSL for TLS support
-- Valgrind (optional, for memory analysis)
+- Rustfmt and Clippy
+
+## Required Pure Rust Tools
+```bash
+# Core development tools
+rustup component add rustfmt
+rustup component add clippy
+rustup component add rust-analyzer
+
+# Pure Rust implementations
+cargo install pure-test
+cargo install mini-bench
+```
 
 ## Environment Setup
 Set the following environment variables:

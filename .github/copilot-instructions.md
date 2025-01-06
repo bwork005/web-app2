@@ -1,7 +1,7 @@
 # Rust Development Guidelines
 
 ## General Guidelines
-- Adhere to Rust's 2018 edition standards.
+- Adhere to Rust's 2021 edition standards.
 - Ensure code is portable, cross-platform, and cross-architecture.
 - Prioritize compatibility with lightweight environments.
 - Avoid features requiring non-portable platform-specific APIs.
@@ -10,65 +10,55 @@
 - Ensure all files use UTF-8 encoding.
 
 ## Encoding
-- Set encoding to UTF-8 (Latin-1) for all source files.
+- Set encoding to UTF-8 for all source files.
 - Use only ASCII-compatible characters where possible.
 
 ## Development Tools
+
 ### Core Tools
-- **Rust**: Programming language with memory safety and concurrency.
-- **Cargo**: Rust's package manager and build system.
-- **Rustup**: Toolchain installer for Rust.
-- **Rustc**: The Rust compiler.
-- **Rust-std**: The Rust standard library.
-- **Rust-docs**: Local copy of the Rust documentation.
-- **Rust-analyzer**: Language server for editors and IDEs.
+- **Rust**: Programming language (2021 edition)
+- **Cargo**: Package manager and build system
+- **Rustup**: Toolchain installer
+- **VS Code + rust-analyzer**: IDE and language server
 
-### Version Control and Collaboration
-- **Git**: Version control system.
-- **Github-CLI**: Command line interface for Github.
+### Web Framework & Server
+- **tiny-http (0.12)**: Lightweight HTTP server
+- **stdweb (0.4)**: WebAssembly and JS interop
 
-### Security and Encryption
-- **GPG**: Encryption and signing tool.
-- **GPG-Agent**: Manages private keys.
-- **Rust-openssl**: OpenSSL bindings for Rust.
-- **Jsonwebtoken**: JSON Web Token implementation in Rust.
-- **Accesscontrol**: Access control library for Rust.
-- **Sha2**: SHA-2 hash functions.
+### Security and Encoding
+- **orion (0.17)**: Pure Rust cryptography
+- **data-encoding (2.3)**: Data encoding/decoding
+- **tiny-keccak (2.0)**: SHA-3 hashing
+- **simdutf8 (0.1)**: SIMD-accelerated UTF-8 validation
 
-### Networking and Communication
-- **Dropbear**: Lightweight SSH client and server.
-- **Tiny-http**: Low-level HTTP server library in Rust.
-- **Tokio**: Asynchronous runtime for Rust.
-- **Rocket**: Web framework for Rust.
+### Async Runtime
+- **async-std (1.12)**: Lightweight async runtime
 
-### Utilities and Libraries
-- **Lru**: Least Recently Used cache implementation.
-- **Zip**: Library for handling ZIP archives.
-- **Regex**: Regular expressions for Rust.
-- **Sys-info**: System information library for Rust.
-- **Wasmer**: WebAssembly runtime.
-- **Dyon**: Rust scripting language.
+### Utilities
+- **indexmap (2.0)**: Ordered hash maps/sets
+- **smol_str (0.2)**: Small-string optimization
+- **spin (0.9)**: Minimal synchronization primitives
+- **anyhow (1.0)**: Error handling
 
-## Code Quality
-- **Clippy**: Lint tool that provides extra checks for common mistakes and stylistic choices.
-- **Rustfmt**: Tool for automatically formatting code.
-- **Encoding_rs**: Character encoding library to ensure UTF-8 compliance.
+### Database & Storage
+- **pickledb (0.5)**: Lightweight key-value store
 
-## Documentation
-- **Rustdoc**: Documentation generator for Rust.
-- **Roff**: Manual page formatter.
+### Logging & Monitoring
+- **log (0.4)**: Logging facade
+- **env_logger (0.10)**: Environment-based logging
 
-## Testing and Benchmarking
-- **Cargo Test**: Built-in testing framework for Rust.
-- **Tarpaulin**: Code coverage analysis for Rust.
-- **Criterion**: Benchmarking library for Rust.
+### Serialization
+- **miniserde (0.1)**: Minimal serialization
 
-## Monitoring and Logging
-- **Prometheus**: Prometheus instrumentation library for Rust.
-- **Log**: Logging facade for Rust.
+### Documentation
+- **man (0.3)**: Man page generation
 
-### Database
-- **PoloDB_core**: An embedded JSON database written in Rust. It only costs around 500KB of memory to serve a database, making it extremely lightweight.
+### Testing & Benchmarking
+- **bencher (0.1)**: Lightweight benchmarking
+
+### Code Quality
+- **clippy**: Lint tool
+- **rustfmt**: Code formatter
 
 
 ## Coding Standards
@@ -188,146 +178,7 @@ brace_style = "SameLineWhere" # Keep braces on the same line for control blocks.
 - Add `cargo fmt --check` to your CI pipeline to enforce formatting.
 - Run `cargo fmt` as a pre-commit hook using a tool like `pre-commit` or `husky`.
 
-## Rocket Web Framework Guidelines
 
-### Version and Dependencies
-Add to `Cargo.toml`:
-```toml
-[dependencies]
-rocket = "0.5.0"
-rocket_contrib = "0.5.0"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-```
-
-### Project Structure for Rocket
-```
-src/
-    main.rs             # Application entry point
-    routes/             # Route handlers
-        mod.rs          # Module declarations
-        auth.rs         # Authentication routes
-        api.rs          # API routes
-        static.rs       # Static file routes
-    models/             # Data models
-        mod.rs
-        user.rs
-        session.rs
-    guards/             # Request guards
-        mod.rs
-        auth.rs
-        rate_limit.rs
-    fairings/          # Fairings (middleware)
-        mod.rs
-        cors.rs
-        logging.rs
-    config/            # Configuration
-        mod.rs
-        app_config.rs
-    errors/            # Error handling
-        mod.rs
-        handlers.rs
-    db/               # Database interactions
-        mod.rs
-        connection.rs
-    services/         # Business logic
-        mod.rs
-        user_service.rs
-```
-
-### Rocket Configuration
-Create `Rocket.toml` in project root:
-```toml
-[debug]
-address = "localhost"
-port = 8000
-workers = 4
-keep_alive = 5
-log_level = "normal"
-limits = { forms = 32768 }
-
-[release]
-address = "0.0.0.0"
-port = 8000
-workers = 16
-keep_alive = 5
-log_level = "critical"
-limits = { forms = 32768 }
-
-[global.databases]
-sqlite_db = { url = "db/database.db" }
-```
-
-### Coding Standards for Rocket
-
-#### Route Handlers
-- Use semantic route names
-- Group related routes in modules
-- Implement proper error handling
-```rust
-#[get("/users/<id>")]
-async fn get_user(id: i32) -> Result<Json<User>, Status> {
-    // Implementation
-}
-```
-
-#### Request Guards
-- Use for authentication and authorization
-- Implement custom guards for specific requirements
-```rust
-#[derive(Debug)]
-struct ApiKey(String);
-
-#[rocket::async_trait]
-impl<'r> FromRequest<'r> for ApiKey {
-    type Error = ();
-    // Implementation
-}
-```
-
-#### State Management
-- Use Rocket managed state for application-wide data
-- Implement thread-safe state management
-```rust
-#[derive(Default)]
-struct AppState {
-    // State fields
-}
-
-#[launch]
-fn rocket() -> _ {
-    rocket::build()
-        .manage(AppState::default())
-        .mount("/", routes![...])
-}
-```
-
-#### Error Handling
-- Use custom error types
-- Implement proper error responses
-```rust
-#[derive(Debug, Responder)]
-enum ApiError {
-    #[response(status = 404)]
-    NotFound(String),
-    #[response(status = 400)]
-    BadRequest(String),
-    // Other error variants
-}
-```
-
-#### Fairings
-- Use for cross-cutting concerns
-- Implement custom middleware
-```rust
-#[derive(Default)]
-struct RequestTimer;
-
-#[rocket::async_trait]
-impl Fairing for RequestTimer {
-    // Implementation
-}
-```
 
 ### Security Best Practices
 - Enable CSRF protection
@@ -344,21 +195,6 @@ impl Fairing for RequestTimer {
 - Configure appropriate worker count
 - Optimize static file serving
 
-### Testing
-```rust
-#[cfg(test)]
-mod tests {
-    use rocket::http::Status;
-    use rocket::local::blocking::Client;
-
-    #[test]
-    fn test_hello_world() {
-        let client = Client::tracked(rocket()).expect("valid rocket instance");
-        let response = client.get("/").dispatch();
-        assert_eq!(response.status(), Status::Ok);
-    }
-}
-```
 
 ## Example structure
 ```
@@ -818,13 +654,13 @@ cache/                   # Cache directory
 var/                         # Variable data directory
     records/                 # System records
         obligation_number.txt # Obligation number
-        group-1234.json       # Group record
-        user-1234.json        # User record
-        trans-w6946.json      # Transaction record
-        trans-scjv.json       # Transaction record
-        trans-ms1180.json     # Transaction record
-        schema-v1.json       # Schema descriptor
-        test-data.json        # Test data
+        group-1234.rec       # Group record
+        user-1234.rec        # User record
+        trans-w6946.rec      # Transaction record
+        trans-scjv.rec       # Transaction record
+        trans-ms1180.rec     # Transaction record
+        schema-v1.desc       # Schema descriptor
+        test-data.rec        # Test data
     log/                     # Logging root directory
         web/                 # Web server logs
             access-YYYY-MM-DD.log # Daily access logs
@@ -867,11 +703,22 @@ var/                         # Variable data directory
             outgoing/        # Outgoing messages
                 msg-*.out    # Outgoing message files
                 out.idx      # Outgoing index
-db/                      # Database files
-    database.pdb           # Main database
+db/
+    database.pdb           # Main database file
+    database.pdb.lock     # Lock file for concurrent access
+    database.pdb.wal      # Write-ahead log
+        data/
+            *.sst             # Sorted String Table files
+            CURRENT           # Points to current manifest
+            LOCK             # Database lock file
+            LOG              # Database operation log
+            MANIFEST-*       # Database manifest files
+        meta/
+        000001.meta      # Metadata files
 exports/                 # Data exports
     data-20240314.json    # DB dump with date
     data-20240314.json    # JSON export with date
+
 ```
 
 ### Rust Project

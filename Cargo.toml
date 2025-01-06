@@ -1,8 +1,60 @@
-[workspace]
-members = [
-    "enssol"
-]
-resolver = "2"
+[package]
+name = "enssol"
+version = "0.1.0"
+edition = "2018"
+authors = ["Adrian Gallo <agallo@enveng-group.com.au>"]
+description = "A web application using Rust with pure Rust zero-dep implementations"
+license = "MIT"
+
+[dependencies]
+# Web Framework (core requirement)
+tiny_http = "0.8"
+
+# Serialization/Deserialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Security (pure Rust, minimal deps)
+orion = "0.17"
+data-encoding = "2.3"
+tiny-keccak = { version = "2.0", features = ["sha3"] }
+
+# Async Runtime (minimal)
+async-std = "1.10"
+
+# Utilities (zero/minimal deps)
+indexmap = "1.9"
+smol_str = "0.1"
+spin = "0.9"
+
+# Database (embedded, pure Rust)
+pickledb = "0.5.1"  # Update/add pickledb dependency
+
+# Logging (minimal)
+log = "0.4"
+env_logger = "0.10"
+
+# Error Handling (lightweight)
+anyhow = "1.0"
+
+# Encoding (pure Rust)
+simdutf8 = "0.1"
+
+# Web Native APIs (pure Rust)
+stdweb = "0.4"
+
+# Documentation
+man = "0.1"
+
+# Date and Time
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+bencher = "0.1"
+
+[[bin]]
+name = "enssol"
+path = "src/main.rs"
 
 [profile.release]
 opt-level = 3
@@ -10,17 +62,7 @@ lto = true
 codegen-units = 1
 panic = 'abort'
 strip = true
-debug = false
 
-[profile.dev]
-opt-level = 0
-debug = true
-split-debuginfo = "packed"
-
-[profile.test]
-opt-level = 0
-debug = true
-
-[profile.bench]
-opt-level = 3
-debug = false
+[features]
+default = ["web-native-apis"]
+web-native-apis = []        # Feature flag for web native APIs

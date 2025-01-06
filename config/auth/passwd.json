@@ -1,0 +1,189 @@
+{
+  "users": [
+    {
+      "username": "john",
+      "uid": 1000,
+      "gid": 1000,
+      "fullName": "John Smith",
+      "homeDir": "/home/john",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "admin",
+      "uid": 1001,
+      "gid": 1001,
+      "fullName": "Administrator",
+      "homeDir": "/home/admin",
+      "shell": "/bin/sh",
+      "isAdmin": true
+    },
+    {
+      "username": "test",
+      "uid": 1002,
+      "gid": 1002,
+      "fullName": "Test User",
+      "homeDir": "/home/test",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "mary",
+      "uid": 1003,
+      "gid": 1003,
+      "fullName": "User",
+      "homeDir": "/home/mary",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "hssemgr",
+      "uid": 1004,
+      "gid": 1004,
+      "fullName": "SCJV - HSSE Manager",
+      "homeDir": "/home/hssemgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "envmgr",
+      "uid": 1005,
+
+      "gid": 1005,
+      "fullName": "Perdaman - Env & Heritage Manager",
+      "homeDir": "/home/envmgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "envlead",
+      "uid": 1006,
+      "gid": 1006,
+      "fullName": "SCJV - Environmental Lead",
+      "homeDir": "/home/envlead",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "envadv",
+      "uid": 1007,
+      "gid": 1007,
+      "fullName": "SCJV - Lead Environmental Advisor",
+      "homeDir": "/home/envadv",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "ownenv",
+      "uid": 1008,
+      "gid": 1008,
+      "fullName": "OWNER Environment and Heritage Manager",
+      "homeDir": "/home/ownenv",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "hermgr",
+      "uid": 1009,
+      "gid": 1009,
+      "fullName": "SCJV - Heritage & Indigenous Relations Manager",
+      "homeDir": "/home/hermgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "envrep",
+      "uid": 1010,
+      "gid": 1010,
+      "fullName": "SCJV - Project Environmental Representative",
+      "homeDir": "/home/envrep",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "senvadv",
+      "uid": 1011,
+      "gid": 1011,
+      "fullName": "SCJV - Senior Environmental Advisor",
+      "homeDir": "/home/senvadv",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "consup",
+      "uid": 1012,
+      "gid": 1012,
+      "fullName": "SCJV - Construction Supervisor",
+      "homeDir": "/home/consup",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "engmgr",
+      "uid": 1013,
+      "gid": 1013,
+      "fullName": "SCJV - Engineering Manager",
+      "homeDir": "/home/engmgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "conmgr",
+      "uid": 1014,
+      "gid": 1014,
+      "fullName": "SCJV - Construction Manager",
+      "homeDir": "/home/conmgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "commgr",
+      "uid": 1015,
+      "gid": 1015,
+      "fullName": "SCJV - Commercial Manager",
+      "homeDir": "/home/commgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "projmgr",
+      "uid": 1016,
+      "gid": 1016,
+      "fullName": "SCJV - Project Manager",
+      "homeDir": "/home/projmgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "perdmgr",
+      "uid": 1017,
+      "gid": 1017,
+      "fullName": "Perdaman - Management",
+      "homeDir": "/home/perdmgr",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    },
+    {
+      "username": "admin",
+      "uid": 0,
+      "gid": 0,
+      "fullName": "Admin User",
+      "homeDir": "/root",
+      "shell": "/bin/sh",
+      "isAdmin": true
+    },
+    {
+      "username": "testuser",
+      "uid": 1000,
+      "gid": 1000,
+      "fullName": "Test User",
+      "homeDir": "/home/testuser",
+      "shell": "/bin/sh",
+      "isAdmin": false
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2024-03-14T00:00:00Z",
+    "version": "1.0.0"
+  }
+}

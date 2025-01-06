@@ -2,10 +2,10 @@
 FROM docker.io/alpine:3.18
 
 # Set environment
-ENV LANG=en_AU.ISO8859-1 \
-    LC_ALL=en_AU.ISO8859-1 \
-    CHARSET=ISO-8859-1 \
-    PATH="/root/.cargo/bin:$PATH"
+ENV LANG=en_AU.UTF-8 \
+    LC_ALL=en_AU.UTF-8 \
+    CHARSET=UTF-8 \
+    PATH="/root/.cargo/bin:/home/appuser/.cargo/bin:$PATH"
 
 # Install necessary packages
 RUN apk update && apk add --no-cache \
@@ -16,8 +16,6 @@ RUN apk update && apk add --no-cache \
     dropbear \
     dropbear-dbclient \
     dropbear-ssh \
-    perl \
-    openssl-dev \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/* /var/tmp/*
 

@@ -3,154 +3,70 @@
 ## Core Build Tools
 
 ### Rust Toolchain
-- rustc: Rust compiler
-- cargo: Package manager
-- rustup: Toolchain manager
-
-### Busybox
-- Single binary with multiple utilities
-- Provides core Unix utilities
-- Simplifies system management
-
-### Binutils
-- Binary utilities for object files
-- Supports object file manipulation
-- Simplifies binary management
+- **Rust (2021 edition)**: Primary programming language
+- **Cargo**: Package manager and build system
+- **Rustup**: Toolchain installer
 
 ## Development Environment
 
-### rust-analyzer
-- IDE support
+### IDE Support
+- **VS Code**: Primary IDE
+- **rust-analyzer**: Language server integration
+- **rustfmt**: Code formatter
+- **clippy**: Linter
 
-### rustfmt
-- Code formatter
+## Core Dependencies
 
-### clippy
-- Linter
+### Web Server & Framework
+- **tiny-http (0.12)**: Lightweight HTTP server implementation
+- **stdweb (0.4)**: WebAssembly and JavaScript interoperability
 
-### GDB (GNU Debugger)
-- Interactive debugger
-- Supports breakpoints and inspection
-- Memory and stack analysis
+### Security & Encoding
+- **orion (0.17)**: Pure Rust cryptographic operations
+- **data-encoding (2.3)**: Data encoding/decoding utilities
+- **tiny-keccak (2.0)**: SHA-3 hashing implementation
+- **simdutf8 (0.1)**: SIMD-accelerated UTF-8 validation
 
-### Git
-- Version control system
-- Branch management
-- Collaboration support
+### Runtime Support
+- **async-std (1.12)**: Lightweight async runtime implementation
 
-### Github-CLI
-- Command line interface for Github
-- Supports repository management
-- Simplifies pull requests and issues
+### Utility Libraries
+- **indexmap (2.0)**: Ordered hash maps and sets
+- **smol_str (0.2)**: Small-string optimization
+- **spin (0.9)**: Minimal synchronization primitives
+- **anyhow (1.0)**: Error handling utilities
 
-### Gcompat
-- Compatibility library for GNU extensions
-- Provides GNU extensions for musl libc
-- Ensures compatibility with GNU tools
+### Data Storage
+- **pickledb (0.5)**: Lightweight key-value store
 
-### Dropbear
-- Lightweight SSH client and server
-- Secure remote access
-- Simplifies file transfer
+### Logging System
+- **log (0.4)**: Logging facade
+- **env_logger (0.10)**: Environment-based logging
 
-### GPG
-- Encryption and signing tool
-- Secure data management
-- Supports key management
+### Data Formats
+- **miniserde (0.1)**: Minimal serialization implementation
 
-## Code Quality
+### Documentation Tools
+- **man (0.3)**: Man page generation
 
-### Splint
-- Static code analyzer
-- Enforces C90/ANSI C standards 
-- Checks for coding violations
+### Testing Framework
+- **bencher (0.1)**: Lightweight benchmarking
 
-### Cppcheck
-- Static analysis tool
-- Memory leak detection
-- Style checking
+## Version Control
+- Git: Source control
+  - Branch Strategy: GitFlow
+  - Commit Format: `[Type] Description`
 
-### enca
-- Character encoding validator
-- Ensures ISO-8859-1 compliance
-- Checks file encodings
-
-### Valgrind
-- Memory analysis and debugging
-- Detects memory leaks and errors
-- Validates memory management
-
-### Shellcheck
-- Shell script validator
-- Ensures script portability
-- Identifies common errors
-
-## Documentation
-
-### Doxygen
-- Code documentation generator
-- Produces HTML/man documentation
-- Extracts documentation from source
-
-### Groff
-- Manual page formatter
-- Generates man pages
-- Processes documentation
-
-## Testing
-
-### CUnit
-- Unit testing framework for C
-- Supports test suites and assertions
-- Integrated with build process
-
-### POSIX Test Suite (PTS)
-- POSIX compliance testing
-- API compatibility validation
-- System call verification
-
-### gcov
-- Code coverage analysis
-- Test coverage reporting
-- Identifies untested code
-
-### gprof
-- Performance profiler
-- Function timing analysis
-- Call graph generation
-
-## Security
-
-### cargo-audit
-- Security auditing
-
-### cargo-crev
-- Code review system
-
-### BearSSL
-- lightweight SSL/TLS implementation
-- Certificate management and key generation
-- Cryptographic operations and secure communications
-- Optimized for embedded systems
-
-### checksec
-- Binary security analysis
-- Stack protection verification
-- Security feature validation
-
-## Tools
-
-### Recutils
-- Text-based database management
-- Supports structured data storage
-- Simplifies data management
-
-## Build Requirements
-
-All tools must be configured for:
-- ISO-8859-1 encoding
-- POSIX compliance
-- C90 standard support
+## Security Tools
+- cargo-audit: Security auditing
+- cargo-crev: Code review system
+- BearSSL: lightweight SSL/TLS implementation
+  - Certificate management and key generation
+  - Cryptographic operations and secure communications
+  - Optimized for embedded systems
+- checksec: Binary security analysis
+  - Stack protection verification
+  - Security feature validation
 
 ## Environment Setup
 
@@ -158,5 +74,5 @@ Required environment variables:
 ```bash
 LANG=en_AU.ISO8859-1
 LC_ALL=en_AU.ISO8859-1
-CHARSET=ISO-8859-1
+CHARSET=UTF-8
 ```

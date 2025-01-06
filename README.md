@@ -52,12 +52,50 @@ To build the project, follow these steps:
 
 ## Tool Requirements
 
-Ensure you have the following tools installed:
+### Core Tools
+- **Rust**: Programming language (2021 edition)
+- **Cargo**: Package manager and build system
+- **Rustup**: Toolchain installer
+- **VS Code + rust-analyzer**: IDE and language server
 
-- **Rust**: Programming language with memory safety and concurrency
-- **Cargo**: Package manager and build system for Rust
-- **Rustup**: Toolchain installer for Rust
-- **Git**: For version control
+### Web Framework & Server
+- **tiny-http (0.12)**: Lightweight HTTP server
+- **stdweb (0.4)**: WebAssembly and JS interop
+
+### Security and Encoding
+- **orion (0.17)**: Pure Rust cryptography
+- **data-encoding (2.3)**: Data encoding/decoding
+- **tiny-keccak (2.0)**: SHA-3 hashing
+- **simdutf8 (0.1)**: SIMD-accelerated UTF-8 validation
+
+### Async Runtime
+- **async-std (1.12)**: Lightweight async runtime
+
+### Utilities
+- **indexmap (2.0)**: Ordered hash maps/sets
+- **smol_str (0.2)**: Small-string optimization
+- **spin (0.9)**: Minimal synchronization primitives
+- **anyhow (1.0)**: Error handling
+
+### Database & Storage
+- **pickledb (0.5)**: Lightweight key-value store
+
+### Logging & Monitoring
+- **log (0.4)**: Logging facade
+- **env_logger (0.10)**: Environment-based logging
+
+### Serialization
+- **miniserde (0.1)**: Minimal serialization
+
+### Documentation
+- **man (0.3)**: Man page generation
+
+### Testing & Benchmarking
+- **bencher (0.1)**: Lightweight benchmarking
+
+### Code Quality
+- **clippy**: Lint tool
+- **rustfmt**: Code formatter
 
 ## Build Commands
 
@@ -99,7 +137,7 @@ Access via browser:
 - Status page: http://localhost:8080/status
 
 ## Technical Details
-- Rust 2018 edition compliant
+- Rust 2021 edition compliant
 - Cross-platform compatibility
 - Static linking
 - UTF-8 character encoding
