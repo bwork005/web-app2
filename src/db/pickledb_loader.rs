@@ -19,11 +19,7 @@ pub struct ProjectStore {
 
 impl ProjectStore {
     pub fn new<P: AsRef<Path>>(path: P) -> Result<Self> {
-        let db = PickleDb::new(
-            path,
-            PickleDbDumpPolicy::AutoDump,
-            SerializationMethod::Json
-        );
+        let db = PickleDb::new(path, PickleDbDumpPolicy::AutoDump, SerializationMethod::Json);
         Ok(Self { db: Arc::new(Mutex::new(db)) })
     }
 
@@ -35,8 +31,6 @@ impl ProjectStore {
 
     pub fn list_projects(&self) -> Result<Vec<Record>> {
         let db = self.db.lock().unwrap();
-        Ok(db.iter()
-            .filter_map(|item| item.get_value::<Record>().map_or(None, Some))
-            .collect())
+        Ok(db.iter().filter_map(|item| item.get_value::<Record>()).collect())
     }
 }

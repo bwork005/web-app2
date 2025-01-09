@@ -1,13 +1,13 @@
-use anyhow::{Result, Error};
-use log::{info, error};
-use std::path::Path;
-use tiny_http::{Server, Response, Header, Method, Request};
-use serde::{Serialize, Deserialize};
+use anyhow::{Error, Result};
+use log::{error, info};
+use serde::{Deserialize, Serialize};
 use spin::Mutex;
+use std::path::Path;
 use std::sync::Arc;
+use tiny_http::{Header, Method, Request, Response, Server};
 
-use crate::static_files;
 use crate::db::pickledb_loader::{ProjectStore, Record};
+use crate::static_files;
 
 #[derive(Serialize, Deserialize)]
 struct ApiResponse<T> {
@@ -29,11 +29,7 @@ impl WebServer {
         let server = Server::http(addr).map_err(Error::msg)?;
         info!("Server listening on {}", addr);
 
-        Ok(Self {
-            server,
-            static_dir: static_dir.into(),
-            store,
-        })
+        Ok(Self { server, static_dir: static_dir.into(), store })
     }
 
     pub fn serve(self) -> Result<()> {
@@ -47,8 +43,8 @@ impl WebServer {
                 (Method::Get, "/api/projects") => self.handle_projects_list(),
                 (Method::Post, "/api/records") => {
                     let mut store = store.lock();
-                    self.handle_record_create(&mut request, &mut *store)
-                },
+                    self.handle_record_create(&mut request, &mut store)
+                }
                 _ => self.handle_static_file(&request),
             };
 
@@ -70,7 +66,11 @@ impl WebServer {
         }
     }
 
-    fn handle_record_create(&self, request: &mut Request, store: &mut ProjectStore) -> Response<std::io::Cursor<Vec<u8>>> {
+    fn handle_record_create(
+        &self,
+        request: &mut Request,
+        store: &mut ProjectStore,
+    ) -> Response<std::io::Cursor<Vec<u8>>> {
         let mut body = String::new();
         if let Err(e) = request.as_reader().read_to_string(&mut body) {
             return self.error_response(400, &format!("Invalid request body: {}", e));
@@ -99,11 +99,8 @@ impl WebServer {
     }
 
     fn error_response(&self, status: u16, message: &str) -> Response<std::io::Cursor<Vec<u8>>> {
-        let response = ApiResponse::<()> {
-            success: false,
-            data: None,
-            error: Some(message.to_string()),
-        };
+        let response =
+            ApiResponse::<()> { success: false, data: None, error: Some(message.to_string()) };
         let mut response = Response::from_data(serde_json::to_vec(&response).unwrap());
         response.add_header(Header::from_bytes("Content-Type", "application/json").unwrap());
         response.with_status_code(status)
@@ -114,10 +111,10 @@ impl WebServer {
         match static_files::serve_static(&self.static_dir, &path) {
             Ok(content) => {
                 let mut response = Response::from_data(content.data);
-                response.add_header(Header::from_bytes(
-                    "Content-Type".as_bytes(),
-                    content.mime_type.as_bytes(),
-                ).unwrap());
+                response.add_header(
+                    Header::from_bytes("Content-Type".as_bytes(), content.mime_type.as_bytes())
+                        .unwrap(),
+                );
                 response
             }
             Err(e) => {

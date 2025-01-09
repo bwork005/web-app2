@@ -5,14 +5,12 @@ use spin::Mutex;
 use std::sync::Arc;
 
 pub struct AsyncCache {
-    cache: Arc<Mutex<IndexMap<SmolStr, Vec<u8>>>>
+    cache: Arc<Mutex<IndexMap<SmolStr, Vec<u8>>>>,
 }
 
 impl AsyncCache {
     pub fn new() -> Self {
-        Self {
-            cache: Arc::new(Mutex::new(IndexMap::new()))
-        }
+        Self { cache: Arc::new(Mutex::new(IndexMap::new())) }
     }
 
     pub async fn store(&self, key: &str, value: Vec<u8>) {
@@ -21,6 +19,14 @@ impl AsyncCache {
         task::spawn(async move {
             let mut cache = cache.lock();
             cache.insert(key, value);
-        }).await;
+        })
+        .await;
+    }
+}
+
+// Add the Default implementation here
+impl Default for AsyncCache {
+    fn default() -> Self {
+        Self::new()
     }
 }

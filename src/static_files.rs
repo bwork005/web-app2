@@ -1,6 +1,6 @@
-use anyhow::{Result, Context};
-use std::path::{Path, PathBuf};
+use anyhow::{Context, Result};
 use std::fs;
+use std::path::{Path, PathBuf};
 
 pub struct StaticContent {
     pub data: Vec<u8>,
@@ -15,14 +15,10 @@ pub fn serve_static(static_dir: &Path, request_path: &str) -> Result<StaticConte
         anyhow::bail!("Invalid path");
     }
 
-    let full_path = if full_path.is_dir() {
-        full_path.join("index.html")
-    } else {
-        full_path
-    };
+    let full_path = if full_path.is_dir() { full_path.join("index.html") } else { full_path };
 
-    let data = fs::read(&full_path)
-        .with_context(|| format!("Failed to read file: {:?}", full_path))?;
+    let data =
+        fs::read(&full_path).with_context(|| format!("Failed to read file: {:?}", full_path))?;
 
     let mime_type = get_mime_type(&full_path);
 
@@ -50,5 +46,6 @@ fn get_mime_type(path: &Path) -> String {
         Some("webp") => "image/webp",
         Some("ico") => "image/x-icon",
         _ => "application/octet-stream",
-    }.to_string()
+    }
+    .to_string()
 }

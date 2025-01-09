@@ -1,4 +1,4 @@
-﻿use tiny_http::Header;
+use tiny_http::Header;
 
 pub fn get_security_headers() -> Vec<Header> {
     vec![
@@ -8,11 +8,10 @@ pub fn get_security_headers() -> Vec<Header> {
         Header::from_bytes("Referrer-Policy", "strict-origin-when-cross-origin").unwrap(),
         Header::from_bytes(
             "Content-Security-Policy",
-            "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;"
-        ).unwrap(),
-        Header::from_bytes(
-            "Strict-Transport-Security",
-            "max-age=31536000; includeSubDomains"
-        ).unwrap(),
+            "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;",
+        )
+        .unwrap(),
+        Header::from_bytes("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+            .unwrap(),
     ]
 }
