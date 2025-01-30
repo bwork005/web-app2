@@ -1,248 +1,418 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Login - Secure Access</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <style type="text/css">
-    :root {
-      --primary-color: #2f4f2f;
-      --background-color: #f4f7f2;
-      --text-color: #000;
-      --error-color: #ff0000;
-      --warning-color: #fff3cd;
-      --border-color: #ddd;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Web-app Enssol</title>
+    <style>
+        :root {
+            --Backgroundprimary: #f6fcee;
+            --BackgroundSecondary: #E2E7DD;
+            --GreenSecondary: #B5C495;
+            --TextPrimaryDark: #000;
+            --GreenPrimary: #909E77;
+            --Sub-headercolor: #FFF;
+            --BeigePrimary: #E5DED0;
+            --TextSecondaryDark: #000000;
+            --dropdowncontent: rgb(238, 234, 234);
+            --boxshadowdrop: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --dropdown: rgb(12, 10, 10);
+            --background-colordrop: #5b5b5b;
+            --iconcolor: #ffffff;
+            --iconbackground: #8b9873;
+            --iconbox: 0 4px 6px rgba(0, 0, 0,);
+        }
+    
+        body {
+          width: 1920px;
+          height: 1080px;
+          background: var(--Backgroundprimary);
+        }
+
+        .main-content {
+          display: flex;
+          width: 1333px;
+          height: 933px;
+          margin-left: 348px;
+          margin-top: 123px;
+          margin-right: 239px;
+          padding: 10px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
+          flex-shrink: 0;
+          border-radius: 8px;
+          background: var(--BackgroundSecondary); /* Corrected variable name */
+          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        .header {
+          display: flex;
+          width: 1920px;
+          height: 90px;
+          padding: 0px 20px;
+          justify-content: space-between;
+          align-items: center;
+          flex-shrink: 0;
+          background: var(--GreenSecondary);
+          color: var(--TextPrimaryDark);
+          font-family: Ubuntu;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+    
+        .header-image{
+          width: 40px;
+          height: 40px;
+          margin-bottom:50px;
+          background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+        }
+    
+        .header-content {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-left:10px;
+          color: var(--TextPrimaryDark, #000);
+          font-family: Ubuntu;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+    
+        .header-content-2 {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+          flex-shrink: 0;
+          margin-right: 70px;
+          margin-top: 30px;
+        }
+        
+        .header-title {
+          color: var(--TextPrimaryDark);
+          font-family: Ubuntu;
+          font-size: var(--sds-typography-body-size-medium);
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%; /* 22.4px */
+          align-self: stretch;
+          margin-top: 20px;
+        }
+
+        .header-description {
+          margin-bottom: 40px;
+          color: var(--TextPrimaryDark);
+          font-family: Ubuntu;
+          font-size: var(--sds-typography-body-size-medium);
+          font-style: normal;
+          font-weight: var(--sds-typography-body-font-weight-regular);
+          line-height: 140%; /* 22.4px */
+          align-self: stretch;
+        }
+
+
+        .sub-header {
+          display: flex;
+          padding: 8px 10px;
+          align-items: center;
+          gap: 16px;
+          align-self: stretch;
+          border-radius: 8px;
+          background: var(--GreenPrimary);
+        }
+    
+        .sub-header-content {
+          color: var(--Sub-headercolor);
+          text-align: center;
+          font-family: Ubuntu;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 139%; /* 25.02px */
+        }
+        .sub-header-content-2 {
+          display: flex;
+          padding: 2px 10px;
+          align-items: center;
+          gap: 16px;
+          border-radius: 8px;
+          background: var(--BeigePrimary);
+          color: var(--TextSecondaryDark);
+        }
+        .footer {
+          display: flex;
+          padding-right: 10px;
+          align-items: center;
+          gap: 100px;
+          align-self: stretch;
+          border-radius: 8px 8px 0px 0px;
+          background: var(--GreenPrimary);
+          color: var(--Sub-headercolor);
+          font-family: Ubuntu;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 139%; /* 19.46px */
+          display: flex;
+          height: 48px;
+          align-items: center;
+          align-self: stretch;
+        }
+
+        .footer-content {
+          width: 64.007px;
+          color: var(--Sub-headercolor);
+          font-family: Ubuntu;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 139%; /* 19.46px */
+        }
+
+        .sub-footer-2 {
+          display: flex;
+          padding-right: 0px;
+          align-items: center;
+          gap: 130px;
+          align-self: stretch;
+          border-radius: 8px 8px 0px 0px;
+          background: var(--BeigePrimary);
+          height: 48px;
+          width: 100%; /* Ensure it spans the full width */
+          box-sizing: border-box; /* Include padding in the element's total width and height */
+        }
+
+    .sub-footer-2-content{
+      width: 64.007px;
+      background: var(--BeigePrimary);
+      color: var(--TextSecondaryDark);
+      font-family: Ubuntu;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 139%; /* 19.46px */
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f7f2;
-      font-size: 16px;
+    .dropdown {
+      position: relative;
+      display: inline-block;
     }
-
-    .main {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #fff;
-      border: 1px solid #ccc;
-    }
-
-    .form-group {
-      margin: 10px 0;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    select {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0;
-      box-sizing: border-box;
-    }
-
-    .error {
-      color: #ff0000;
-      font-weight: bold;
-      padding: 10px;
+        /* Dropdown Content (Hidden by Default) */
+   .dropdown-content {
       display: none;
-    }
-
-    input[type="submit"],
-    input[type="reset"] {
-      padding: 5px 15px;
-      margin: 5px;
-      background: #2f4f2f;
-      color: #fff;
-      border: 1px solid #1a2f1a;
-    }
-
-    .footer {
-      margin-top: 20px;
-      text-align: center;
-      color: #666;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th,
-    td {
-      padding: 8px;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-
-    th {
-      background: #2f4f2f;
-      color: white;
-      position: sticky;
-      top: 0;
+      position: absolute;
+      background-color: var(--dropdowncontent);
+      min-width:160px;
+      box-shadow: var(--boxshadowdrop);
       z-index: 1;
     }
 
-    button,
-    input[type="button"],
-    input[type="submit"] {
-      padding: 8px 15px;
-      background: #2f4f2f;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: var(--dropdown);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
 
-    .container {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 10px;
-      margin-top: 60px;
-    }
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background: var(--background-colordrop);
+        }
 
-    /* Tablet Breakpoint */
-    @media screen and (min-width: 768px) {
-      .container {
-        padding: 20px;
-      }
-    }
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-    /* Desktop Breakpoint */
-    @media screen and (min-width: 1024px) {
-      .container {
-        max-width: 1200px;
-        margin: 60px auto 0;
-      }
-    }
+        /* Style for the "^" shape */
+        .dropbtn::after {
+            content: "^";
+            font-size: 16px;
+        }
 
-    .user-nav {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      display: flex;
-      gap: 5px;
-    }
+        .icon-body{
+            font-family: Arial, sans-serif;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            margin-top: 150px;
+            margin-bottom: 150px;
+            margin-left:120%;
+            margin-right: 20px;
+        }
 
-    .nav-button {
-      padding: 8px 12px;
-      background: #fff;
-      color: #2f4f2f;
-      border: 1px solid #fff;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
 
-    #header {
-      background: #2f4f2f;
-      color: #fff;
-      padding: 15px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-    }
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--iconcolor);
+            color: var(--iconcolor);
+            background-color: var(--iconbackground);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--iconbox);
+        }
 
-    #header h1 {
-      margin: 0;
-      font-size: 1.2em;
-      padding-right: 100px;
-    }
-  </style>
-  <script type="text/javascript">
-    "use strict";
-    function validateForm() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-      var errorDiv = document.getElementById("login-error");
+        .icon img {
+            width: 50%;
+            height: 50%;
+        }
 
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "/auth?username=" + encodeURIComponent(username) +
-        "&password=" + encodeURIComponent(password), false);
-      xhr.send(null);
+    </style>
+  </head>
+  <body>
+    <header class="header">
+        <section class="header-logo">
+            <img src="https://s3-alpha-sig.figma.com/img/408a/0553/85b58402aa6e392cd297249b2cb600c7?Expires=1736726400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Q2gZQNtosx5rp9FwMwJnjFpfiuvOmF61K1WnbTGzZABDB8G111sXyty4j0R54St8kuOBYXhMnaJdPDmRzBltGg1~MPXR8~HwuOup291Yxe2M3HKxtGgZHo-JecgNhliv6-kAccEmmtGNbjwanSa0X4R6fVjORXbFzBsxrlH4rVeWdGqosEEgWSQUa8136jPDTXNXAsImfZERzf1ZthP8N4W~aLIjY9TITQnDJe~z7Gt8Aefocv5Fq6Hixn29YctWHC0YXZ8yvVGqo3wIof1MSWhsWifBwSFtqHRbugCLuigQqS52Hr3FQkqY5eNw49vFcnjsekH9eYSiRHe2KHEBxA__" class="logo">
+        </section>
+        <section class="header-content">
+            Environmental Compliance Management System
+        </section>
+        <section class="header-content">
+          <section class="header-content-2">
+            <img src="https://s3-alpha-sig.figma.com/img/408a/0553/85b58402aa6e392cd297249b2cb600c7?Expires=1736726400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Q2gZQNtosx5rp9FwMwJnjFpfiuvOmF61K1WnbTGzZABDB8G111sXyty4j0R54St8kuOBYXhMnaJdPDmRzBltGg1~MPXR8~HwuOup291Yxe2M3HKxtGgZHo-JecgNhliv6-kAccEmmtGNbjwanSa0X4R6fVjORXbFzBsxrlH4rVeWdGqosEEgWSQUa8136jPDTXNXAsImfZERzf1ZthP8N4W~aLIjY9TITQnDJe~z7Gt8Aefocv5Fq6Hixn29YctWHC0YXZ8yvVGqo3wIof1MSWhsWifBwSFtqHRbugCLuigQqS52Hr3FQkqY5eNw49vFcnjsekH9eYSiRHe2KHEBxA__" class="logo">
+          </section>
+          <section class="header-text">
+              <div class="header-title">Title</div>
+              <div class="header-description">Description</div>
+          </section>
+        </section>
+    </header>
+    <main class="main-content">
+        <section class="sub-header">
+            <section class="sub-header-content">Select Category:</section>
+            <section class="sub-header-content-2">Lockdayahead
+                <section class="dropdown">
+                    <button class="dropbtn" hx-get="/link-options" hx-targets=".dropdown-content"></button>
+                    <section class="dropdown-content">
+                      <a hx-get="#" hx-target="#content">Link 1</a> 
+                      <a hx-get="#" hx-target="#content">Link 2</a> 
+                      <a hx-get="#" hx-target="#content">Link 3</a>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <section class="footer">
+            <label style="white-space: nowrap;">
+                <input type="checkbox" name= "enviroment-mechanism" value="value1">
+            Primary Environment Mechanism </label>
+            
+            <section class="footer-content" style="white-space: nowrap;">Obligations
+              <section class="dropdown">
+                <button class="dropbtn" hx-get="/link-options" hx-target=".dropdown-content"></button> 
+                <section class="dropdown-content">
+                  <a hx-get="#" hx-target="#content">Link 1</a>
+                  <a hx-get="#" hx-target="#content">Link 2</a> 
+                  <a hx-get="#" hx-target="#content">Link 3</a> 
+                </section>
+              </section>
+            </section>
+            
+            <section class="footer-content" style="white-space: nowrap;">Responsibility
+              <section class="dropdown">
+                <button class="dropbtn" hx-get="/link-options" hx-target=".dropdown-content"></button> 
+                <section class="dropdown-content">
+                  <a hx-get="#" hx-target="#content">Link 1</a>
+                  <a hx-get="#" hx-target="#content">Link 2</a> 
+                  <a hx-get="#" hx-target="#content">Link 3</a> 
+                </section>
+              </section>
+            </section>
+            
+            <section class="footer-content" style="white-space: nowrap;">Project Phase
+              <section class="dropdown">
+                <button class="dropbtn" hx-get="/link-options" hx-target=".dropdown-content"></button> 
+                <section class="dropdown-content">
+                  <a hx-get="#" hx-target="#content">Link 1</a>
+                  <a hx-get="#" hx-target="#content">Link 2</a> 
+                  <a hx-get="#" hx-target="#content">Link 3</a> 
+                </section>
+              </section>
+            </section>
+            
+            <section class="footer-content" style="white-space: nowrap;">Action due date
+              <section class="dropdown">
+                <button class="dropbtn" hx-get="/link-options" hx-target=".dropdown-content"></button> 
+                <section class="dropdown-content">
+                  <a hx-get="#" hx-target="#content">Link 1</a>
+                  <a hx-get="#" hx-target="#content">Link 2</a> 
+                  <a hx-get="#" hx-target="#content">Link 3</a> 
+                </section>
+              </section>
+            </section>
 
-      if (xhr.status === 200) {
-        errorDiv.style.display = "none";
-        // Set cookie for the session
-        document.cookie = "username=" + encodeURIComponent(username) +
-          ";path=/;max-age=3600";  // Expires in 1 hour
-        // Redirect after successful auth
-        window.location.href = 'dashboard.html';
-        return false;
-      } else {
-        errorDiv.style.display = "block";
-        return false;
-      }
-    }
+            <section class="footer-content">Status
+              <section class="dropdown">
+                <button class="dropbtn" hx-get="/link-options" hx-target=".dropdown-content"></button> 
+                <section class="dropdown-content">
+                  <a hx-get="#" hx-target="#content">Link 1</a>
+                  <a hx-get="#" hx-target="#content">Link 2</a> 
+                  <a hx-get="#" hx-target="#content">Link 3</a> 
+                </section>
+              </section>
+            </section>
+            <section class="footer-content" style="white-space: nowrap;">Compliance Comments
+              <section class="dropdown">
+                <button class="dropbtn" hx-get="/link-options" hx-target=".dropdown-content"></button> 
+                <section class="dropdown-content">
+                  <a hx-get="#" hx-target="#content">Link 1</a>
+                  <a hx-get="#" hx-target="#content">Link 2</a> 
+                  <a hx-get="#" hx-target="#content">Link 3</a> 
+                </section>
+              </section>
+            </section>
+        </section>
+  
+    <!-- Adding sub-footer-2-->
+    <section class="sub-footer-2">
+      <section class="sub-footer-2-content">
+          <label style="white-space: nowrap;">
+              <input type="checkbox" name="environment-mechanism" value="value1"> Primary Environment Mechanism
+          </label>
+      </section>
+      <section class="sub-footer-2-content">Obligations</section>
+      <section class="sub-footer-2-content">Responsibility</section>
+      <section class="sub-footer-2-content" style="white-space: nowrap;">Project Phase</section>
+      <section class="sub-footer-2-content" style="white-space: nowrap;">Action due date</section>
+      <section class="sub-footer-2-content">Status</section>
+      <section class="sub-footer-2-content" style="white-space: nowrap;">Compliance Comments</section>
+  </section>
+  
+<section class="icon-body">
+  <section class="sidebar">
+    <section class="icon">
+      <i class="fas fa-question-circle"></i>
+    </section>
+  </section>
+  <section class="sidebar">
+    <section class="icon">
+      <span class="material-icons">settings</span>
+    </section>
+  </section>
+  <section class="sidebar">
+    <section class="icon">
+      <span class="material-icons">logout</span>
+    </section>
+  </section>
+</section>
 
-    function clearError() {
-      document.getElementById("login-error").style.display = "none";
-    }
-
-    function handleRegister(event) {
-      event.preventDefault();
-      var username = document.getElementById("reg-username").value;
-      var password = document.getElementById("reg-password").value;
-      var errorDiv = document.getElementById("register-error");
-
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "/register?username=" + encodeURIComponent(username) +
-        "&password=" + encodeURIComponent(password), false);
-      xhr.send(null);
-
-      if (xhr.status === 200) {
-        errorDiv.style.display = "none";
-        alert("Registration successful! Please login.");
-        document.getElementById("registerForm").reset();
-        return false;
-      } else {
-        errorDiv.style.display = "block";
-        return false;
-      }
-    }
-  </script>
-</head>
-
-<body>
-  <div id="header">
-    <h1>Secure Access</h1>
-  </div>
-  <div role="main" class="container">
-    <div class="main">
-      <h1>Secure Login</h1>
-
-      <form id="loginForm" onsubmit="return validateForm();">
-        <div id="login-error" class="error">
-          Invalid username or password
-        </div>
-
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username">
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password">
-        </div>
-
-        <div class="form-group">
-          <input type="submit" value="Login">
-          <input type="reset" value="Clear" onclick="clearError();">
-        </div>
-      </form>
-
-      <div class="footer">
-        <p>Protected by security monitoring</p>
-        <p>Need help? Contact: <a href="mailto:support@enssol.com.au">support@enssol.com.au</a></p>
-      </div>
-    </div>
-    <!-- main content -->
-  </div>
 </body>
-
 </html>
