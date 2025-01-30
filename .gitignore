@@ -200,3 +200,12 @@ docker-compose.override.yml
 # Ignore target directory
 /target
 
+# Ignore specific fingerprint files
+target/debug/.fingerprint/web-app2-1a3a3b9f22e360aa/doc-bin-web-app2
+target/debug/.fingerprint/web-app2-1a3a3b9f22e360aa/doc-bin-web-app2.json
+
+# Other files and directories to ignore
+node_modules/
+*.log
+*.tmp
+
